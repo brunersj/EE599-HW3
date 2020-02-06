@@ -3,10 +3,15 @@
 
 #include <string>
 #include <vector>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
 
 class Solution {
 public:
-  std::string PrintHelloWorld();
+  std::vector<int> VectToSum(std::vector<int>, int);
 };
+
+
 
 #endif
