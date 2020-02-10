@@ -116,27 +116,34 @@ bool Solution::ValidBracket(std::string input){
 
 // Question 6
 
+// O(1)
 void Solution::SetV(std::vector<int> v){
     v_ = v;
     vSize_ = v_.end() - v_.begin();
     it_ = v_.begin();
 }
+
+// O(1)
 void Solution::SetIt(std::vector<int>::iterator it){
     it_ = it;
 }
 
+// O(1)
 std::vector<int> Solution::GetV(){
     return v_;
 }
 
+// O(1)
 std::vector<int>::iterator Solution::GetIt(){
     return it_;
 }
 
+// O(1)
 int Solution::GetSize(){
     return vSize_;
 }
 
+// O(n)
 void Solution::PrintV(){
     cout << "Vector: ";
     for (auto i : v_){
@@ -145,6 +152,7 @@ void Solution::PrintV(){
     cout << "\n";
 }
 
+// O(1)
 int Solution::FirstElement(){
     return *v_.begin();
 }
@@ -153,10 +161,12 @@ int Solution::LastElement(){
     return *(v_.end()-1);
 }
 
+// O(1)
 int Solution::CurrentElement(){
     return *it_;
 }
 
+// O(1)
 void Solution::IthElement(int i){
     // cout << "Dist: " << ((v_.begin()-it_) + i) << endl;
     // cout << "size: " << vSize_ << endl;

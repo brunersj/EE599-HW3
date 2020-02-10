@@ -12,11 +12,17 @@ int main()
 /*
 Pros / Cons:
 Passing parameters by value:
-    * Pros:
-    
-Passing parameters using pointers
-Passing parameters using references
-Passing parameters using const references
+    * Pros: Simpler / more straightforward. Don't have to worry about pointers. Original data is protected
+    * Cons: Poor performance if parameter is large. Requires parameter to be copied. Costs memory and runtime performance. Original data cannot be modified 
+Passing parameters using pointers:
+    * Pros: Better performance since parameter is not copied. Can modify parameter directly
+    * Cons: Original data is not protected.
+Passing parameters using references:
+    * Pros: Better performance since parameter is not copied. Can modify parameter directly. More intuitive than pointers
+    * Cons: Original data is not protected. 
+Passing parameters using const references:
+    * Pros: Better performance since parameter is not copied. Original data is protected. More intuitive than pointers
+    * Cons: Cannot directly modify parameter
 */
 
 // Question 2:
@@ -36,10 +42,42 @@ Passing parameters using const references
         cout << "No elements add to sum" << endl;
     }
 
+// Question 3:
+
+cout << "Question 3:" << endl;
+SinglyLinkedList sll;
+SinglyLinkedList sll1(input,3);
+
+
+sll.push_back(4);
+//sll.print();
+sll.push_back(7);
+sll.push_front(5);
+sll.print();
+sll.push_front(6);
+sll.insert_after(sll.head_->next->next, 11);
+sll.print();
+sll.erase(sll.head_->next);
+sll.print();
+sll.pop_front();
+sll.print();
+cout << sll.size() << endl;
+sll.pop_back();
+sll.print();
+sll.push_back(7);
+sll.print();
+cout << "Back: " << sll.back() << endl;
+cout << "Front: " << sll.front() << endl;
+cout << sll.GetBackPointer() << endl;
+cout << sll.GetIthPointer(1) << endl;
+
+
+
+
 // Question 4:
 
   std::string input4 = "(a+b)";
-  cout << "Question 4:\ninput: " << input4 << endl;
+  cout << "\nQuestion 4:\ninput: " << input4 << endl;
   bool output4 = solution.ValidBracket(input4);
   cout << output4 << endl;
 

@@ -23,7 +23,7 @@ SinglyLinkedList();
 // - If i is greater than input size, the last item’s next is nullptr.
 SinglyLinkedList(const std::vector<int> &inputs, int i);
 
-~SinglyLinkedList() { } // destructor, cleans up
+~SinglyLinkedList(); // destructor, cleans up
 
 bool empty(); // checks if empty
 int size(); // returns size
