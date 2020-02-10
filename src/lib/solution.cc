@@ -38,7 +38,7 @@ std::vector<int> Solution::VectToSum(std::vector<int>& input, int sum){
             std::unordered_map<int,int>::const_iterator mapIt = vectMap.find(secondInt);
 
             if (mapIt == vectMap.end()){ // second int does not exist to add to sum
-                cout << "DNE" << endl;
+                //cout << "DNE" << endl;
             }
             else { // second int exists - find index
                 int secondIndex = mapIt->second;

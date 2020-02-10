@@ -3,6 +3,7 @@
 #include "src/lib/sll.h"
 #include "gtest/gtest.h"
 #include <vector>
+#include <iostream>
 
 
 // Q2
@@ -110,13 +111,102 @@ TEST(SinglyLinkedListTest, HandlesSize1) {
   EXPECT_EQ(expected, actual);
 }
 
-// TEST(SinglyLinkedListTest, HandlesPushBack) {
+TEST(SinglyLinkedListTest, HandlesPushBack) {
+  SinglyLinkedList sll;
+  sll.push_back(4);
+  sll.push_back(7);
+  int actual = sll.back();
+  int expected = 7;
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(SinglyLinkedListTest, HandlesPushFront) {
+  SinglyLinkedList sll;
+  sll.push_front(4);
+  sll.push_front(7);
+  int actual = sll.front();
+  int expected = 7;
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(SinglyLinkedListTest, HandlesInsertAfter) {
+  SinglyLinkedList sll;
+  sll.push_back(4);
+  sll.push_back(7);
+  sll.insert_after(sll.head_->next, 8);
+  int actual = sll.head_->next->next->val;
+  int expected = 8;
+  EXPECT_EQ(expected, actual);
+}
+
+// TEST(SinglyLinkedListTest, HandlesEraseHeadSize1) {
 //   SinglyLinkedList sll;
-//   sll.push_back(1);
-//   ListNode actual = sll.size();
-//   ListNode expected = 1;
+  
+// //   sll.push_back(5);
+// //   sll.erase(sll.head_);
+  
+// //   sll.print();
+//   testing::internal::GetCapturedStdout();
+//   std::cout << "Empty list: {}";
+//   std::string actual = testing::internal::GetCapturedStdout();
+//   std::string expected = "Empty list: {}";
 //   EXPECT_EQ(expected, actual);
 // }
+
+TEST(SinglyLinkedListTest, HandlesPopFront) {
+  SinglyLinkedList sll;
+  sll.push_back(1);
+  sll.pop_front();
+  int actual = sll.size();
+  int expected = 0;
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(SinglyLinkedListTest, HandlesBack) {
+  SinglyLinkedList sll;
+  sll.push_back(1);
+  sll.push_back(5);
+  sll.push_back(7);
+  int actual = sll.back();
+  int expected = 7;
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(SinglyLinkedListTest, HandlesBackEmpty) {
+  SinglyLinkedList sll;
+  int actual = sll.back();
+  int expected = INT32_MIN;
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(SinglyLinkedListTest, HandlesFront) {
+  SinglyLinkedList sll;
+  sll.push_back(1);
+  sll.push_back(5);
+  sll.push_back(7);
+  int actual = sll.front();
+  int expected = 1;
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(SinglyLinkedListTest, HandlesFrontEmpty) {
+  SinglyLinkedList sll;
+  int actual = sll.front();
+  int expected = INT32_MIN;
+  EXPECT_EQ(expected, actual);
+}
+
+
+// returns head when ith pointer is 0
+TEST(SinglyLinkedListTest, HandlesIthPointerHead) {
+  SinglyLinkedList sll;
+  sll.push_back(3);
+  sll.push_back(6);
+  sll.push_back(8);
+  ListNode* actual = sll.GetIthPointer(0);
+  ListNode* expected = sll.head_;
+  EXPECT_EQ(expected, actual);
+}
 
 // Q4
 TEST(ValidBracketTest, HandlesValid1Set) {

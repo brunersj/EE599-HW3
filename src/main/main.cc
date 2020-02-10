@@ -46,8 +46,14 @@ Passing parameters using const references:
 
 cout << "Question 3:" << endl;
 SinglyLinkedList sll;
-SinglyLinkedList sll1(input,3);
-
+SinglyLinkedList sll1;
+sll1.push_back(6);
+cout << "Back1: " << sll1.back() << endl;
+cout << "empty: " << sll1.empty() << endl;
+sll1.erase(sll1.head_);
+sll1.print();
+sll1.pop_front();
+sll.pop_back();
 
 sll.push_back(4);
 //sll.print();
@@ -66,10 +72,11 @@ sll.pop_back();
 sll.print();
 sll.push_back(7);
 sll.print();
+
 cout << "Back: " << sll.back() << endl;
 cout << "Front: " << sll.front() << endl;
-cout << sll.GetBackPointer() << endl;
-cout << sll.GetIthPointer(1) << endl;
+cout << "Back Pointer: " << sll.GetBackPointer() << endl;
+cout << "2nd element pointer: " << sll.GetIthPointer(1) << endl;
 
 
 

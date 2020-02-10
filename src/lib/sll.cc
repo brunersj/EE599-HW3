@@ -22,7 +22,7 @@ SinglyLinkedList::SinglyLinkedList(const std::vector<int> &inputs, int i){
     ListNode *p = head_;
     ListNode *ith;
     if(i < inputs.size() && i > 0 ){
-        int count;
+        int count = 0;
         while(p->next != nullptr){
             if (count == i){
                 ith = p;
@@ -110,15 +110,28 @@ void SinglyLinkedList::insert_after(ListNode* p, int i){
 
 // Erases node p
 void SinglyLinkedList::erase(ListNode* p){
-    ListNode *pp = head_;
+     ListNode *pp = head_;
     
     // check if empty
-    if(empty()){
+    if(this->empty()){
         cout << "There are no nodes to delete" << endl;
         return;
     }
+    // // invalid node to erase
+    // else if (p == nullptr){
+    //     cout << "Node is not in linked list" << endl;
+    //     return;
+    // }
+    
+    // head is only node to delete
+    else if (p == head_){
+        head_ = nullptr;
+        delete p;
+        p = nullptr;
+        return;
+    }
     else{
-        while(pp->next != p){
+        while(pp->next != p && pp->next != nullptr){
             if(pp == nullptr){
                 cout << "Node is not in linked list" << endl;
                 return;
@@ -145,7 +158,7 @@ void SinglyLinkedList::pop_front(){
         pp = nullptr;
     }
     else{
-        cout << "Can't pop from empty list" << endl;
+        cout << "Can't pop front from empty list" << endl;
     }
 }
 
@@ -162,6 +175,9 @@ void SinglyLinkedList::pop_back(){
             delete temp;
             temp = nullptr;
         }
+    }
+    else{
+        cout << "Can't pop back from empty list" << endl;
     }
 
 }
@@ -196,7 +212,7 @@ int SinglyLinkedList::back(){
         return p->val;
     }
     else{
-        return 00;
+        return INT32_MIN;
     }
 }
 
@@ -206,7 +222,7 @@ int SinglyLinkedList::front(){
         return head_->val;
     }
     else{
-        return 00;
+        return INT32_MIN;
     }
 }
 
